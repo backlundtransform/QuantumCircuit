@@ -26,6 +26,23 @@
     Message("Test passed.");
   }
 
+
+   @Test("QuantumSimulator")
+  operation AddQubit(): Unit {
+
+ use qubits = Qubit[4];
+ 
+      X(qubits[0]);
+      X(qubits[1]);
+      CNOT(qubits[0], qubits[2]);
+      CNOT(qubits[1], qubits[2]);
+      CCNOT(qubits[0],qubits[1],qubits[3]);
+      let register = LittleEndian([qubits[2],qubits[3]]);
+      let number = MeasureInteger(register);
+      ResetAll(qubits);
+      Fact(number == 2, "1+1=2");
+  }
+
   @Test("QuantumSimulator")
   operation GroverTest(): Unit {
 
