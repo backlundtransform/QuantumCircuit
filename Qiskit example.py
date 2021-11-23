@@ -17,13 +17,17 @@ def print_state_vector(qc):
     final_state = Statevector.from_instruction(qc)
     return array_to_latex(final_state, prefix="\\text{Statevector} = ")
 
-qc = QuantumCircuit(2)
+qc =QuantumCircuit(3)
+print_state_vector(qc)
+
+qc = QuantumCircuit(3)
 qc.x(0)
 qc.cx(0,1)
 qc.h(0)
 qc.draw()
 
 print_bloch_sphere(qc)
+qc.measure_all()
 print_plot_histogram(qc)
 qc.draw()
 
