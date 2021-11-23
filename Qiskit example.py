@@ -8,7 +8,6 @@ def print_bloch_sphere(qc):
     return plot_bloch_multivector(state, title="New Bloch Multivector", reverse_bits=False)
 
 def print_plot_histogram(qc):
-    qc.measure_all()
     backend = Aer.get_backend('qasm_simulator')
     job = execute(qc, backend)
     return plot_histogram(job.result().get_counts(), color='midnightblue', title="New Histogram")
