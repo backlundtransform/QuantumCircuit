@@ -19,16 +19,15 @@ def print_state_vector(qc):
 qc =QuantumCircuit(3)
 print_state_vector(qc)
 
-qc = QuantumCircuit(3)
 qc.x(0)
 qc.cx(0,1)
 qc.h(0)
-qc.draw()
+qc.draw(output = 'mpl')
 
 print_bloch_sphere(qc)
 qc.measure_all()
 print_plot_histogram(qc)
-qc.draw()
+
 
  
 
